@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Heart ML</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Input</h2>
+    
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ 'success' if category == 'success' else 'warning' }} alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form class="form-horizontal" action="/" method="POST">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Age:</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="age" placeholder="Enter Age" name="age" min="1" max="120">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Sex:</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" id="sex" placeholder="Enter Sex (1-Male 0-Female)" name="sex" min="0" max="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Chest Pain Type:</label>
+            <div class="col-sm-7">
+                <input type="number" class="form-control" id="cps" placeholder="Enter Type (0-Typical Angina; 1-Atypical Angina; 2-Non-Anginal Pain; 3-Asymptomatic)" name="cpt" min="0" max="3">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Resting Blood Pressure:</label>
+            <div class="col-sm-5">
+                <input type="number" class="form-control" id="bprest" placeholder="Enter Blood Pressure (in mm Hg on admission to the hospital)" name="bprest" min="1" max="175">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Serum Cholestoral:</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="chol" placeholder="Enter Cholestoral (mg/dl)" name="chol" min="1" max="400">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Fasting Blood Sugar > 120 mg/dl:</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="fbs" placeholder="Enter 1-True; 0-False" name="fbs" min="0" max="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Resting Electrocardiographic Results:</label>
+            <div class="col-sm-6">
+                <input type="number" class="form-control" id="restecg" placeholder="Enter 2-Left Ventricular Hypertrophy; 1-Having ST-T Wave Abnormality; 0-Normal" name="restecg" min="0" max="2">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Maximum Heart Rate:</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="maxhr" placeholder="Enter Heart Rate" name="maxhr" min="0" max="200">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Exercise Induced Angina:</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="eia" placeholder="Enter 1-Yes; 0-No" name="eia" min="0" max="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">St Depression:</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="old" placeholder="Enter" name="old" min="0" max="5" step="0.1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Slope:</label>
+            <div class="col-sm-5">
+                <input type="number" class="form-control" id="slope" placeholder="Enter 2-Downsloping; 1-Flat; 0-Unsloping" name="slope" min="0" max="2">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Ca:</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" id="ca" placeholder="Enter" name="ca" min="0" max="3">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Thal:</label>
+            <div class="col-sm-5">
+                <input type="number" class="form-control" id="thal" placeholder="Enter 3-Reversable Defect; 2-Normal; 1-Fixed Defect; 0-Error" name="thal" min="0" max="3">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
